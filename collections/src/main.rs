@@ -3,7 +3,25 @@
     Векторы, строки и хэш-таблицы
 */
 
+#[derive(Debug)]
+enum SpreadsheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String),
+}
+
 fn main() {
+
+    let row = vec![
+        SpreadsheetCell::Int(3),
+        SpreadsheetCell::Float(10.13),
+        SpreadsheetCell::Text(String::from("Blue")),
+    ];
+
+    for j in &row {
+        println!("Sheet vector row = {:?}", j);
+    }
+
     let v: Vec<i32> = Vec::new();
     // Аннотация типа позволяет указать Rust какие типы мы хотим хранить в векторе
     // Инициализируется как стандартная строка
@@ -45,7 +63,8 @@ fn main() {
     match four {
         Some(four) => println!("This is four element in Vector: {}", four),
         None => println!("This is no four element"),
-    } 
+    }
+
     /* 
         Получение значение вектора при помощи get
         1) Создаем Option переменную с типом-ссылкой &i32
